@@ -1,1 +1,1 @@
-console.log("test completed");
+document.querySelector("#createPRoject").addEventListener("click",(()=>{}));

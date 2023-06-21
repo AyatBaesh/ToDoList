@@ -9,12 +9,21 @@
 </head>
 <body>
     <nav class = "header">ToDo List</nav>
-    <div id="side-panel" class = "navbar">
+    <div id="sidePanel" class = "navbar">
+        <h2>Projects</h2>
+        <div id = "projects"></div>
+        <form id = "addForm">
+            <input type = "text" name = "projectName" id = "projectName">
+            <div id = "buttonsDiv">
+                <button id = "add" class = "btn addFormBtn">Add</button>
+                <button id = "cancel" class = "btn addFormBtn">Cancel</button>
+            </div>
+            
+        </form>
         <button id="createProject" class = 'btn'>"Create Project"</button>
-        <div></div>
-        <div></div>
-        <div></div>
     </div>
-    <div id = "content"></div>
+    <div id = "content">
+
+    </div>
 </body>
 </html>

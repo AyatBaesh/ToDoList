@@ -3,7 +3,7 @@
     box-sizing: border-box;
   }
   body {
-    background-color: #f2ecee;
+    /* background-color: #f2ecee; */
     margin: 0;
   }
   .btn{
@@ -16,10 +16,17 @@
     font-size: 16px;
     cursor: pointer;
     margin-top: 5px;
+    z-index: 9999999;
   }
   .btn:hover{
 
     border: 2px solid gray;
+  }
+  #add:hover{
+    border: 2px solid rgb(13, 153, 32);
+  }
+  #cancel:hover{
+    border: 2px solid rgb(153, 13, 20);
   }
   .btn:active{
         background-color: #363579;
@@ -33,7 +40,7 @@
     position: sticky;
     top:0;
   }
-  #side-panel{
+  .navbar{
     background-color: rgb(25, 55, 109);
     color: white;
     font-size: 32px;
@@ -44,9 +51,26 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  #addForm{
+    display: none;
+    max-width: calc(100% - 10px);
+
+  }
+  #addForm>input{
+    font-size: 24px;
+    max-width: 95%;
+    margin: 0 2.5%;
+  }
+  #buttonsDiv{
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
 
-  
+  }
+  #buttonsDiv>.btn{
+    width:49%;
   }
   #content{
     background-color: rgb(87, 108, 188);

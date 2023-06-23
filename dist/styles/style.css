@@ -1,81 +1,80 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  /* background-color: #f2ecee; */
+  margin: 0;
+}
+.btn {
+  background-color: #4e4caf;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 5px;
+  z-index: 9999999;
+}
+.btn:hover {
+  border: 2px solid gray;
+}
+#add:hover {
+  border: 2px solid rgb(13, 153, 32);
+}
+#cancel:hover {
+  border: 2px solid rgb(153, 13, 20);
+}
+.btn:active {
+  background-color: #363579;
+  color: gray;
+}
+.header {
+  color: rgb(165, 215, 232);
+  font-size: 72px;
+  background-color: rgb(11, 36, 71);
+  position: sticky;
+  top: 0;
+}
+.navbar {
+  background-color: rgb(25, 55, 109);
+  color: white;
+  font-size: 32px;
+  position: fixed;
+  left: 0;
+  height: 100%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#addForm {
+  display: none;
+  max-width: calc(100% - 10px);
+}
+#addForm > input {
+  font-size: 24px;
+  max-width: 95%;
+  margin: 0 2.5%;
+}
+#buttonsDiv {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#buttonsDiv > .btn {
+  width: 49%;
+}
+#content {
+  background-color: rgb(87, 108, 188);
+  margin-left: 30%;
+  width: 70%;
+  height: 100vh;
+  padding: 20px;
+}
 
-  *{
-    box-sizing: border-box;
-  }
-  body {
-    /* background-color: #f2ecee; */
-    margin: 0;
-  }
-  .btn{
-    background-color: #4e4caf;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    text-align: center;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 5px;
-    z-index: 9999999;
-  }
-  .btn:hover{
-
-    border: 2px solid gray;
-  }
-  #add:hover{
-    border: 2px solid rgb(13, 153, 32);
-  }
-  #cancel:hover{
-    border: 2px solid rgb(153, 13, 20);
-  }
-  .btn:active{
-        background-color: #363579;
-    color: gray;
-
-  }
-  .header{
-    color: rgb(165, 215, 232);
-    font-size: 72px;
-    background-color: rgb(11, 36, 71);
-    position: sticky;
-    top:0;
-  }
-  .navbar{
-    background-color: rgb(25, 55, 109);
-    color: white;
-    font-size: 32px;
-    position: fixed;
-    left: 0;
-    height: 100%;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  #addForm{
-    display: none;
-    max-width: calc(100% - 10px);
-
-  }
-  #addForm>input{
-    font-size: 24px;
-    max-width: 95%;
-    margin: 0 2.5%;
-  }
-  #buttonsDiv{
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-  }
-  #buttonsDiv>.btn{
-    width:49%;
-  }
-  #content{
-    background-color: rgb(87, 108, 188);
-    margin-left: 30%;
-    width: 70%; 
-    height: 100vh; 
-    padding: 20px;
-  }
+.project {
+  cursor: pointer;
+}

@@ -68,11 +68,20 @@ body {
   width: 49%;
 }
 #content {
+  color: white;
   background-color: rgb(87, 108, 188);
   margin-left: 30%;
   width: 70%;
   height: 100vh;
   padding: 20px;
+}
+.projectContent > h2 {
+  font-size: 32px;
+}
+.projectContent {
+  min-height: 200px;
+  min-width: 400px;
+  background-color: #363579;
 }
 
 .project {

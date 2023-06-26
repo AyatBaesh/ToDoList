@@ -17,8 +17,19 @@ body {
   margin-top: 5px;
   z-index: 9999999;
 }
+.circle{
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  font-size:48px;
+}
+.circle:hover{
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
 .btn:hover {
-  border: 2px solid gray;
+  /* border: 2px solid gray; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 #add:hover {
   border: 2px solid rgb(13, 153, 32);

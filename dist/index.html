@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
-    <nav class="header">ToDo List</nav>
-    <div id="sidePanel" class="navbar">
+
+    <!-- <div id="sidePanel" class="navbar">
       <h2>Projects</h2>
       <div id="projects"></div>
       <form id="addForm">
@@ -20,9 +20,19 @@
         </div>
       </form>
       <button id="createProject" class="btn circle">+</button>
-    </div>
+    </div> -->
+    
     <div id="content">
-      <div id="projectsContent"></div>
+      <div id="inputContainer">
+        <div id="header">ToDo List</div>
+        <div class="input">
+          <input type = "text" name = "toDoInput" id = "toDoInput" placeholder="Add todo">
+          <!-- <button class="btn" id ="saveButton">Save</button> -->
+          <button class = "round btn" id = "addButton">+</button>
+        </div>
+      </div>
+
+      <div class = "toDos"></div>
     </div>
   </body>
 </html>

@@ -14,10 +14,10 @@ body {
   z-index: 9999999;
 }
 #addButton{
-  position: absolute;
+  /* position: absolute;
   top: 0;
-  right: 0;
-  height: 100%;
+  right: 20%;
+  height: 100%; */
 }
 #saveButton{
   border-radius: 15px;
@@ -57,11 +57,38 @@ body {
   height: 100vh;
   padding: 20px;
 }
+.input{
+  display: flex;
+  flex-direction: row;
+
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+
+#addButton {
+  position: absolute;
+  right: 45px;
+  height: 72px;
+  width: 150px;
+  border-radius: 20px;
+  outline: none;
+}
 #toDoInput{
+  flex-grow:2;
   font-size: 36px;
   border-radius: 15px;
+  /* outline: 5px solid red; */
   margin: 50px;
   height: 70px;
   width: 30vw;
   padding-left: 15px;
+  padding-right: 25%;
 }
+/* #toDoInput:hover{
+  border: 5px solid white;
+} */

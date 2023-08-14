@@ -1,0 +1,32 @@
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ (() => {
+
+eval("const addButton = document.getElementById('addButton');\r\nconst toDoInput = document.getElementById('toDoInput');\r\nconst toDoDiv = document.querySelector('.toDos');\r\nlet todos = [];\r\n// let exists = false;\r\n\r\nfunction checkName(name, todos){\r\n    for(const todo of todos){\r\n        if(name === todo.getName()){\r\n            return true;\r\n        }\r\n    }\r\n        return false;\r\n\r\n}\r\n\r\n// async function getData(){\r\n//     let dataArr = await fetch(/*fetch data */);\r\n//     todos = dataArr.json();\r\n//     renderToDos(todos);\r\n// }\r\naddButton.addEventListener('click', (event) => {\r\n    if(toDoInput.value){\r\n        if(checkName(toDoInput.value, todos)){\r\n            alert('You already have this task!');\r\n            return;\r\n        }else if(toDoInput.value.length > 58){\r\n            alert('Oops, Looks like your ToDo name is too big, consider renaming it or breaking into smaller tasks');\r\n        }\r\n        DOMModule.createToDo(toDoInput.value);\r\n        toDoInput.value = '';\r\n\r\n\r\n        console.log(`todos: ${todos}`);\r\n    }\r\n})\r\nfunction renderToDos(todos){\r\n    DOMModule.clear();\r\n    todos.forEach(todo => {\r\n        DOMModule.createToDo(todo.name);\r\n    });\r\n}\r\nconst DOMModule = (() =>{\r\n    \r\n    function clear(){\r\n        while(toDoDiv.firstChild){\r\n            toDoDiv.removeChild(toDoDiv.firstChild);\r\n        }\r\n        todos = [];\r\n    }\r\n\r\n    function createToDo(name){\r\n        const toDo = new ToDoDTO(name, false, (todos.length + 1));\r\n        todos.push(toDo);\r\n\r\n        let jsonNewToDo = JSON.stringify(toDo);\r\n        console.log(`jsonNewToDo: ${jsonNewToDo}, type: ${typeof(jsonNewToDo)}`);\r\n        //send toDo to the server\r\n        createToDoContainer(toDo);    \r\n\r\n    }\r\n    \r\n    function createToDoContainer(toDo){\r\n\r\n            const toDoContainer = document.createElement('div');\r\n            toDoContainer.classList.add('toDo');\r\n            toDoContainer.innerText = toDo.getName();\r\n            toDoDiv.appendChild(toDoContainer);\r\n            createToDoButtons(toDoContainer, toDo);\r\n\r\n    }\r\n    function createToDoButtons(toDoContainer, currentToDo){\r\n\r\n        const buttonsContainer = document.createElement('div');\r\n        buttonsContainer.classList.add('buttons-container');\r\n        \r\n        const statusButton = document.createElement('i');\r\n        statusButton.id = 'statusButton';\r\n        statusButton.classList.add('toDoButton');\r\n        statusButton.classList.add('fa-solid', 'fa-check');\r\n        statusButton.addEventListener('click', () => updateToDo(currentToDo, toDoContainer));\r\n\r\n        const deleteButton = document.createElement('i');\r\n        deleteButton.id = 'deleteButton';\r\n        deleteButton.classList.add('toDoButton');\r\n        deleteButton.classList.add('fa-solid', 'fa-xmark');\r\n        deleteButton.addEventListener('click', () => deleteToDo(todos, currentToDo));\r\n\r\n        buttonsContainer.appendChild(statusButton);\r\n        buttonsContainer.appendChild(deleteButton);\r\n        \r\n        toDoContainer.appendChild(buttonsContainer);\r\n        \r\n    }\r\n\r\n    function deleteToDo(todos, deletedToDo){\r\n        //send deleted todo\r\n        let jsonDeletedToDo = JSON.stringify(deletedToDo);\r\n        console.log(`jsonDeletedToDo: ${jsonDeletedToDo}, type: ${typeof(jsonDeletedToDo)}`);\r\n\r\n        todos = todos.filter(todo => todo.name != deletedToDo.name);\r\n        renderToDos(todos);\r\n        return;\r\n    }\r\n    function updateToDo(updatedToDo, toDoContainer){\r\n        let jsonUpdatedToDo = JSON.stringify(updatedToDo);\r\n        console.log(`jsonUpdatedToDo: ${jsonUpdatedToDo}, type: ${typeof(jsonUpdatedToDo)}`);\r\n\r\n        if(toDoContainer.classList.contains('done')){\r\n            toDoContainer.classList.replace('done', 'undone');\r\n        }else if(toDoContainer.classList.contains('undone')){\r\n            toDoContainer.classList.replace('undone', 'done');\r\n        }else if(updatedToDo.getStatus()){\r\n\r\n            toDoContainer.classList.add('done');\r\n        }else if(!updatedToDo.getStatus()){\r\n            toDoContainer.classList.add('done');\r\n        }\r\n        updatedToDo.changeStatus();\r\n        return;\r\n\r\n\r\n        //send udpated todo\r\n    }\r\n\r\n\r\n\r\n    return {createToDo, clear}\r\n})();\r\n\r\n// console.log(`deleteButton ${deleteButton}`);\r\n\r\nclass ToDoDTO{\r\n    constructor(name, status, index){\r\n        this.status = status;\r\n        this.name = name;\r\n        this.index = index;\r\n    }\r\n    setName(name){\r\n        this.name = name;\r\n    }\r\n    getName(){\r\n        return this.name;\r\n    }\r\n    getStatus(){\r\n        return this.status;\r\n    }\r\n    changeStatus(){\r\n        if(this.status){\r\n            this.status = false;\r\n        }else{\r\n            this.status = true;\r\n        }\r\n    }\r\n\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack://todolist/./src/index.js?");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = {};
+/******/ 	__webpack_modules__["./src/index.js"]();
+/******/ 	
+/******/ })()
+;

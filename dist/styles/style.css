@@ -11,7 +11,7 @@ body {
   border: none;
   text-align: center;
   cursor: pointer;
-  z-index: 9999999;
+  /* z-index: 9999999; */
 }
 
 #saveButton{
@@ -103,4 +103,46 @@ body {
 }
 #toDoInput:focus{
   outline: none;
+}
+
+/* TODO STYLING */
+
+.toDo{
+  min-width: 250px;
+  min-height: 32px;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  overflow-wrap: anywhere;
+}
+.buttons-container{
+padding-right: 1px;
+}
+.toDoButton{
+  margin: 5px;
+  width: 1em;
+  border-radius: 50%;
+}
+.toDoButton:hover{
+  text-align: center;
+  align-items: center;
+  box-shadow: 0 0 50px rgba(255, 255, 255, 1);
+  background-color: rgb(255,255,255);
+  color: black;
+  cursor: pointer;
+}
+/* #deleteButton{
+  max-height: 5px;
+} */
+.toDoButton:active{
+  color: gray;
+}
+.done{
+  text-decoration: line-through;
+  color:rgba(255,255,255, 0.5);
+}
+.undone{
+  text-decoration: none;
 }

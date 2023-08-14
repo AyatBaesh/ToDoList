@@ -52,7 +52,9 @@ const DOMModule = (() =>{
     function createToDo(name){
         const toDo = new ToDoDTO(name, false, (todos.length + 1));
         todos.push(toDo);
-        let jsonToDo = JSON.stringify(toDo);
+
+        let jsonNewToDo = JSON.stringify(toDo);
+        console.log(`jsonNewToDo: ${jsonNewToDo}, type: ${typeof(jsonNewToDo)}`);
         //send toDo to the server
         createToDoContainer(toDo);    
 
@@ -94,12 +96,15 @@ const DOMModule = (() =>{
     function deleteToDo(todos, deletedToDo){
         //send deleted todo
         let jsonDeletedToDo = JSON.stringify(deletedToDo);
+        console.log(`jsonDeletedToDo: ${jsonDeletedToDo}, type: ${typeof(jsonDeletedToDo)}`);
+
         todos = todos.filter(todo => todo.name != deletedToDo.name);
         renderToDos(todos);
         return;
     }
     function updateToDo(updatedToDo, toDoContainer){
         let jsonUpdatedToDo = JSON.stringify(updatedToDo);
+        console.log(`jsonUpdatedToDo: ${jsonUpdatedToDo}, type: ${typeof(jsonUpdatedToDo)}`);
 
         if(toDoContainer.classList.contains('done')){
             toDoContainer.classList.replace('done', 'undone');

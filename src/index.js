@@ -52,7 +52,8 @@ const DOMModule = (() =>{
     function createToDo(name){
         const toDo = new ToDoDTO(name, false, (todos.length + 1));
         todos.push(toDo);
-
+        let jsonToDos = JSON.stringify(todos);
+        console.log(`jsonToDos: ${jsonToDos}, type: ${typeof(jsonToDos)}`)
         let jsonNewToDo = JSON.stringify(toDo);
         console.log(`jsonNewToDo: ${jsonNewToDo}, type: ${typeof(jsonNewToDo)}`);
         //send toDo to the server

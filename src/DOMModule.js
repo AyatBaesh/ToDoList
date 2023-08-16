@@ -1,5 +1,5 @@
 import { todos } from "./index.js";
-import { toDoDiv } from "./index.js";
+const toDoDiv = document.querySelector('.toDos');
 export const DOMModule = (() =>{
     
     function clear(){
